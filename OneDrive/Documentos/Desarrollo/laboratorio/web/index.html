@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Usuarios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>     
+        <%
+            Conexion = null;
+            Statement st = null;
+            ResultSet rs = null;
+        %>
+        <div class="container">
+            <nav class="navbar bg-light">
+                <div class="container-fluid">
+                </div>
+            </nav>
+            <div class="row mt-2">
+                <div class="col-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Apodo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                try {
+                                    Class.forName("com.mysql.cj.jdbc.Driver");
+                                    con = (Conexion) DriverManager.getConnection("jdbc:mysql://localhost:3306/toxica?user=root&password=");
+                                    st = con.createStatement();
+                                    rs = st.executeQuery("SELECT * FROM `persona`;");
+                                    while (rs.next()) {
+                            %>
+                            <tr>
+                                <th scope="row"><%= rs.getString(1)%></th>
+                                <td><%= rs.getString(2)%></td>
+                                <td><%= rs.getString(3)%></td>
+                                <td><%= rs.getString(4)%></td>
+                            </tr>
+
+                            <%
+                                }
+                                } catch (Exception e) {
+                                    out.print("ERROR MySQL" + e);
+                                }
+                            %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </body>
+</html>
