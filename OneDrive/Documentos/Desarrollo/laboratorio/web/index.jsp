@@ -1,8 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : 4/11/2022, 8:02:56 p. m.
+    Author     : zaira
+--%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>Usuarios</title>
@@ -59,3 +63,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </div>
     </body>
 </html>
+
